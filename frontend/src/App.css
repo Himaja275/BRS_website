@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --text-head: 20px;
+  --text-nml: 16px;
+  --card-width: 292px;
+  --gap: 0px;
+  --visible-count: 7;
+  --color-1: rgb(243, 246, 251);
+  --color-2: rgb(251, 246, 239);
+  --color-3: rgb(238, 249, 254);
+  --color-4: rgb(244, 237, 252);
+  --color-5: rgb(252, 237, 237);
+}
+
+#root {
+  font-family: "Urbanist", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--color-1) 0%,
+    var(--color-2) 25%,
+    var(--color-3) 50%,
+    var(--color-4) 75%,
+    var(--color-5) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.bouncing-image {
+  animation: bounceY 2s linear infinite alternate;
+}
+
+@keyframes bounceY {
+  from {
+    transform: translateY(-6px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+.heading {
+  font-size: var(--text-head);
+}
+
+.nml-text {
+  font-size: var(--text-nml);
+}
+
+.text-light {
+  color: #4d525f;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(
+        (-1 * var(--visible-count)) * (var(--card-width) + var(--gap) + 2rem)
+      )
+    );
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.perspective-600 {
+  perspective: 600px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Flip container */
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 300ms ease-out;
+}
+
+/* When flipped, rotate Y 180° */
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Both front and back faces must hide their backface */
+.flip-card-face {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.orange_heading {
+  color: #ed8d3e;
+  font-size: 1rem; /* equivalent to text-base */
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* equivalent to font-semibold */
+}
+
+.black_heading {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem !important;
+  line-height: 2.5rem !important;
+}
+
+@media (min-width: 1024px) {
+  .black_heading {
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
+  }
+}
+
+/*
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+.urbanist {
+  font-family: "Urbanist", sans-serif;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease forwards;
+}
