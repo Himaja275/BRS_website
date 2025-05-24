@@ -1,9 +1,13 @@
 import React from 'react'
 
-const GalleryCard = (props) => {
+const GalleryCard = ({ pic }) => {
   return (
-    <div>
-      <img className='w-72 h-72 object-cover object-center scale-[0.85] rounded-2xl drop-shadow-[0_12px_8px_rgba(0,0,0,0.2)]' src={props.pic} alt="" />
+    <div className="aspect-square w-full overflow-hidden rounded-2xl drop-shadow-[0_12px_8px_rgba(0,0,0,0.2)]">
+      <img
+        className="w-full h-full object-cover"
+        src={pic}
+        alt=""
+      />
     </div>
   )
 }

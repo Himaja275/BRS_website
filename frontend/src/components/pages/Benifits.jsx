@@ -40,12 +40,12 @@ const cardData = [
   },
 ];
 
-const Benifits = () => {
+const Benifits = ({ visible, delayStart = 3, delay = 0.4 }) => {
   return (
     <div className="container mx-auto">
       <div className="flex flex-wrap gap-6 items-center justify-center">
         {cardData.map((card, index) => (
-          <div key={index}>
+          <div key={index} className={visible ? "fade-up" : ""} style={visible ? { animationDelay: `${(delayStart + index) * delay}s` } : {}}>
             <Cardwhy
               image={card.image}
               title={card.title}

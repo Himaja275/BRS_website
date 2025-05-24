@@ -17,22 +17,6 @@
   font-family: "Urbanist", sans-serif;
 }
 
-html,
-body {
-  height: 100%;
-  min-height: 100%;
-  background: linear-gradient(
-    to bottom,
-    var(--color-1) 0%,
-    var(--color-2) 25%,
-    var(--color-3) 50%,
-    var(--color-4) 75%,
-    var(--color-5) 100%
-  );
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
 .bouncing-image {
   animation: bounceY 2s linear infinite alternate;
 }
@@ -126,43 +110,6 @@ body {
   }
 }
 
-/*
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
 .urbanist {
   font-family: "Urbanist", sans-serif;
 }
@@ -180,4 +127,247 @@ body {
 
 .animate-slide-up {
   animation: slide-up 0.8s ease forwards;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.achievement-card {
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.center-content {
+  opacity: 0;
+  transition: opacity 1s ease 0.8s;
+}
+
+/* app.css */
+
+.achievement-card {
+  opacity: 0;
+  transform: translateY(100px) rotate(0deg);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.achievement-card.show-initial {
+  opacity: 1;
+  transform: translateY(0px) rotate(0deg);
+}
+
+.achievement-card.final-rotate {
+  transform: translateY(0px) rotate(var(--rotate-angle));
+}
+
+/* from left */
+.animate-from-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: animateFromLeft 0.8s ease forwards;
+}
+
+@keyframes animateFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* from top */
+.animate-from-top {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: animateFromTop 0.8s ease forwards;
+}
+
+@keyframes animateFromTop {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* from right */
+.animate-from-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: animateFromRight 0.8s ease forwards;
+}
+
+@keyframes animateFromRight {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.animate-acheiver-card-1 {
+  --final-rotate: -6deg;
+  --rotate-lg:-3deg;
+  --final-mt: 2.5rem;
+  --delay:0.8s;
+  --translate-x:50px;
+  --translate-y:-50px;
+}
+
+.animate-acheiver-card-2 {
+  --final-rotate: -3deg;
+  --rotate-lg:-8deg;
+  --final-mt: 0rem;
+  --delay:0.4s;
+  z-index: 10;
+  --translate-x:-210px;
+  --translate-y:300px;
+}
+
+.animate-acheiver-card-3 {
+  --final-rotate: 3deg;
+  --rotate-lg:12deg;
+  --final-mt: 0rem;
+  --delay:0.2s;
+  --translate-x:210px;
+  --translate-y:300px;
+}
+
+.animate-acheiver-card-4 {
+  --final-rotate: 6deg;
+  --rotate-lg:3deg;
+  --final-mt: 2.5rem;
+  --delay:0s;
+  --translate-x:-50px;
+  --translate-y:-50px;
+}
+
+@keyframes animateAcheiverCard1{
+  from{
+    opacity: 0;
+    transform: translateY(400px) rotate(0deg);
+    scale:0.9;
+    gap:0;
+  }
+  to{
+    opacity: 1;
+    transform: translateY(130px) rotate(0deg);
+    scale: 0.9;
+    gap:0;
+  }
+}
+
+@keyframes animateAcheiverCard2{
+  from{
+    opacity: 1;
+    transform: translateY(130px) rotate(0deg);
+    scale:0.9;
+    gap:4;
+  }
+  to{
+    opacity: 1;
+    transform: rotate(var(--final-rotate));
+    margin-top: var(--final-mt);
+    scale:1;
+    gap:4;
+  }
+}
+
+@keyframes moveSecondCardDiagonally {
+  from {
+    opacity:1;
+    scale:0.9;
+    transform: translateY(130px) rotate(0deg);
+    /* transform: translateY(130px) translateX(-50%); */
+  }
+  to {
+    opacity:1;
+    scale:1;
+    transform: rotate(var(--rotate-lg)) translateX(var(--translate-x)) translateY(var(--translate-y));
+  }
+}
+
+.animate-acheiver-card-lg {
+  animation: animateAcheiverCard1 0.4s linear var(--delay) forwards, moveSecondCardDiagonally 0.3s ease-out 1.5s forwards;
+}
+
+.animate-acheiver-card-try{
+  animation: animateAcheiverCard1 0.4s linear var(--delay) forwards, animateAcheiverCard2 0.3s ease-out 1.5s forwards;
+}
+.hidden-card {
+  opacity: 0; /* Hide the card initially */
+}
+
+@keyframes animateAcheivedImage {
+  from{
+    opacity: 0;
+    transform: translateY(100px);
+    overflow-x: hidden;
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+    overflow-x: hidden;
+  }
+}
+
+.animate-acheived-image{
+  animation: animateAcheivedImage 0.3s ease-out 1.5s forwards;
+}
+
+.acheived-image{
+  overflow: hidden;
+  width: 18rem;
+  height: 18rem;
+}
+
+@keyframes animateAcheivedText {
+  from{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-acheived-text{
+  animation: animateAcheivedText 0.3s linear 1.5s forwards;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.embla__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.embla__dot {
+  width: 10px;
+  height: 10px;
+  /* background: gray; */
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.embla__dot--active {
+  background: white;
 }

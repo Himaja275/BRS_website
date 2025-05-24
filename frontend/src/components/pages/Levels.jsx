@@ -32,15 +32,15 @@ const Levels = () => {
   ];
 
   return (
-    <div className="w-[80%] xl:w-[90%] bg-white mx-auto rounded-2xl py-8 flex flex-wrap justify-center gap-y-10 xl:flex-nowrap xl:space-x-4 items-start">
-  <Levelcard level={1} title="Below 1000 Rating" points={level1} badge={badge3} />
-  <div className="hidden xl:block my-auto w-[1.8px] h-52 bg-gradient-to-b from-transparent via-[rgb(210,210,210)] to-transparent"></div>
-  <Levelcard level={2} title="1000-1300 Rating" points={level2} badge={badge2} />
-  <div className="hidden xl:block my-auto w-[1.8px] h-52 bg-gradient-to-b from-transparent via-[rgb(210,210,210)] to-transparent"></div>
-  <Levelcard level={3} title="1300-1700 Rating" points={level3} badge={badge1} />
-  <div className="hidden xl:block my-auto w-[1.8px] h-52 bg-gradient-to-b from-transparent via-[rgb(210,210,210)] to-transparent"></div>
-  <Levelcard level={4} title="Above 1700 Rating" points={level4} badge={badge_star} />
-</div>
+    <div className="w-[80%] xl:w-[90%] bg-white mx-auto rounded-2xl py-8 md:px-3 flex flex-wrap justify-center gap-y-10 xl:flex-nowrap xl:space-x-4 items-start">
+      <Levelcard level={1} title="Below 1000 Rating" points={level1} badge={badge3} />
+      <div className="hidden xl:block my-auto w-[1.8px] h-52 bg-gradient-to-b from-transparent via-[rgb(210,210,210)] to-transparent"></div>
+      <Levelcard level={2} title="1000-1300 Rating" points={level2} badge={badge2} />
+      <div className="hidden xl:block my-auto w-[1.8px] h-52 bg-gradient-to-b from-transparent via-[rgb(210,210,210)] to-transparent"></div>
+      <Levelcard level={3} title="1300-1700 Rating" points={level3} badge={badge1} />
+      <div className="hidden xl:block my-auto w-[1.8px] h-52 bg-gradient-to-b from-transparent via-[rgb(210,210,210)] to-transparent"></div>
+      <Levelcard level={4} title="Above 1700 Rating" points={level4} badge={badge_star} />
+    </div>
 
   );
 };

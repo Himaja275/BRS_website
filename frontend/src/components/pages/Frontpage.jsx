@@ -27,7 +27,7 @@ const Frontpage = () => {
           <div>India's Best Coaches</div>
         </div>
         <img
-          className="w-40 sm:w-56 m-4 opacity-0 animate-slide-up"
+          className="w-3/4 m-4 opacity-0 animate-slide-up"
           style={{ animationDuration: "1s", animationDelay: "0.6s" }}
           src={blue_line}
           alt=""

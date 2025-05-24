@@ -7,6 +7,9 @@ import Navbar from "./components/Navbar.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Footer from "./components/pages/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Basic = ({ Element }) => (
   <>

@@ -9,9 +9,9 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <div className="relative z-40">
+    
       <div className="sticky top-0 backdrop-blur-lg bg-white/25 z-50">
-        <div className="flex justify-between items-center h-24 px-6 md:px-16">
+        <div className="flex justify-around items-center h-24 px-6 md:px-16">
           <Academy />
 
           {/* Hamburger Icon for Mobile */}
@@ -41,7 +41,6 @@ const Navbar = () => {
             </NavLink>
           </div>
         </div>
-      </div>
 
       {/* Mobile Menu Overlay with Slide Down */}
       <div

@@ -1,7 +1,25 @@
-import React from "react";
+import React, {useRef, useState, useEffect} from "react";
 import Faq from "../faq.jsx";
 
 const Faqs = () => {
+  
+    useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+  const containerRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const delay = 0.4;
   const qas = [
     {
       question: "What age groups are your chess classes suitable for?",
@@ -50,9 +68,9 @@ const Faqs = () => {
     },
   ];
   return (
-    <div className="w-[85%] bg-white px-10 max-w-3xl mx-auto py-10  rounded-3xl flex flex-col gap-8">
-      <div className="text-[#ed8d3e] text-base font-[Outfit] font-semibold">FAQs</div>
-      <div className="font-sans font-bold text-4xl">Frequently Asked Questions</div>
+    <div className="w-[85%] bg-white px-10 max-w-3xl mx-auto py-10  rounded-3xl flex flex-col gap-8" ref={containerRef}>
+      <div className={visible?"text-[#ed8d3e] text-base font-[Outfit] font-semibold fade-up":"text-[#ed8d3e] text-base font-[Outfit] font-semibold"} style={visible ? { animationDelay: `${0 * delay}s` } : {}}>FAQs</div>
+      <div className={visible?"font-sans font-bold text-4xl fade-up":"font-sans font-bold text-4xl"} style={visible ? { animationDelay: `${1 * delay}s` } : {}}>Frequently Asked Questions</div>
       <div className="flex flex-col gap-6">
       {qas.map((item, index) => (
         <Faq key={index} question={item.question} answer={item.answer} />

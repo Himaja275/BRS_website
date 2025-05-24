@@ -20,17 +20,13 @@ const Gallery = () => {
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14
   ]
   return (
-    <div className='bg-white rounded-2xl flex flex-wrap gap-5 items-center mx-auto container p-8'>
-      {
-        images.map((image, index) => {
-          return (
-            <div key={index} className='flex justify-center items-center'>
-              <GalleryCard pic={image} />
-            </div>
-          )
-        })
-      }
+    <div className="bg-white rounded-2xl grid grid-cols-3 xl:grid-cols-4 gap-5 md:gap-10 items-center mx-auto container p-8">
+  {images.map((image, index) => (
+    <div key={index} className="flex justify-center items-center">
+      <GalleryCard pic={image} />
     </div>
+  ))}
+</div>
   )
 }
 
