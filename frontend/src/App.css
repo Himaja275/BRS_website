@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --text-head: 20px;
+  --text-nml: 16px;
+  --card-width: 292px;
+  --gap: 0px;
+  --visible-count: 7;
+  --color-1: rgb(243, 246, 251);
+  --color-2: rgb(251, 246, 239);
+  --color-3: rgb(238, 249, 254);
+  --color-4: rgb(244, 237, 252);
+  --color-5: rgb(252, 237, 237);
+}
+
+#root {
+  font-family: "Urbanist", sans-serif;
+}
+
+.bouncing-image {
+  animation: bounceY 2s linear infinite alternate;
+}
+
+@keyframes bounceY {
+  from {
+    transform: translateY(-6px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+.heading {
+  font-size: var(--text-head);
+}
+
+.nml-text {
+  font-size: var(--text-nml);
+}
+
+.text-light {
+  color: #4d525f;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(
+        (-1 * var(--visible-count)) * (var(--card-width) + var(--gap) + 2rem)
+      )
+    );
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.perspective-600 {
+  perspective: 600px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Flip container */
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 300ms ease-out;
+}
+
+/* When flipped, rotate Y 180° */
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Both front and back faces must hide their backface */
+.flip-card-face {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.orange_heading {
+  color: #ed8d3e;
+  font-size: 1rem; /* equivalent to text-base */
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* equivalent to font-semibold */
+}
+
+.black_heading {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem !important;
+  line-height: 2.5rem !important;
+}
+
+@media (min-width: 1024px) {
+  .black_heading {
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
+  }
+}
+
+.urbanist {
+  font-family: "Urbanist", sans-serif;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease forwards;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.achievement-card {
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.center-content {
+  opacity: 0;
+  transition: opacity 1s ease 0.8s;
+}
+
+/* app.css */
+
+.achievement-card {
+  opacity: 0;
+  transform: translateY(100px) rotate(0deg);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.achievement-card.show-initial {
+  opacity: 1;
+  transform: translateY(0px) rotate(0deg);
+}
+
+.achievement-card.final-rotate {
+  transform: translateY(0px) rotate(var(--rotate-angle));
+}
+
+/* from left */
+.animate-from-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: animateFromLeft 0.8s ease forwards;
+}
+
+@keyframes animateFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* from top */
+.animate-from-top {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: animateFromTop 0.8s ease forwards;
+}
+
+@keyframes animateFromTop {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* from right */
+.animate-from-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: animateFromRight 0.8s ease forwards;
+}
+
+@keyframes animateFromRight {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.animate-acheiver-card-1 {
+  --final-rotate: -6deg;
+  --rotate-lg:-3deg;
+  --final-mt: 2.5rem;
+  --delay:0.8s;
+  --translate-x:50px;
+  --translate-y:-50px;
+}
+
+.animate-acheiver-card-2 {
+  --final-rotate: -3deg;
+  --rotate-lg:-8deg;
+  --final-mt: 0rem;
+  --delay:0.4s;
+  z-index: 10;
+  --translate-x:-210px;
+  --translate-y:300px;
+}
+
+.animate-acheiver-card-3 {
+  --final-rotate: 3deg;
+  --rotate-lg:12deg;
+  --final-mt: 0rem;
+  --delay:0.2s;
+  --translate-x:210px;
+  --translate-y:300px;
+}
+
+.animate-acheiver-card-4 {
+  --final-rotate: 6deg;
+  --rotate-lg:3deg;
+  --final-mt: 2.5rem;
+  --delay:0s;
+  --translate-x:-50px;
+  --translate-y:-50px;
+}
+
+@keyframes animateAcheiverCard1{
+  from{
+    opacity: 0;
+    transform: translateY(400px) rotate(0deg);
+    scale:0.9;
+    gap:0;
+  }
+  to{
+    opacity: 1;
+    transform: translateY(130px) rotate(0deg);
+    scale: 0.9;
+    gap:0;
+  }
+}
+
+@keyframes animateAcheiverCard2{
+  from{
+    opacity: 1;
+    transform: translateY(130px) rotate(0deg);
+    scale:0.9;
+    gap:4;
+  }
+  to{
+    opacity: 1;
+    transform: rotate(var(--final-rotate));
+    margin-top: var(--final-mt);
+    scale:1;
+    gap:4;
+  }
+}
+
+@keyframes moveSecondCardDiagonally {
+  from {
+    opacity:1;
+    scale:0.9;
+    transform: translateY(130px) rotate(0deg);
+    /* transform: translateY(130px) translateX(-50%); */
+  }
+  to {
+    opacity:1;
+    scale:1;
+    transform: rotate(var(--rotate-lg)) translateX(var(--translate-x)) translateY(var(--translate-y));
+  }
+}
+
+.animate-acheiver-card-lg {
+  animation: animateAcheiverCard1 0.4s linear var(--delay) forwards, moveSecondCardDiagonally 0.3s ease-out 1.5s forwards;
+}
+
+.animate-acheiver-card-try{
+  animation: animateAcheiverCard1 0.4s linear var(--delay) forwards, animateAcheiverCard2 0.3s ease-out 1.5s forwards;
+}
+.hidden-card {
+  opacity: 0; /* Hide the card initially */
+}
+
+@keyframes animateAcheivedImage {
+  from{
+    opacity: 0;
+    transform: translateY(100px);
+    overflow-x: hidden;
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+    overflow-x: hidden;
+  }
+}
+
+.animate-acheived-image{
+  animation: animateAcheivedImage 0.3s ease-out 1.5s forwards;
+}
+
+.acheived-image{
+  overflow: hidden;
+  width: 18rem;
+  height: 18rem;
+}
+
+@keyframes animateAcheivedText {
+  from{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-acheived-text{
+  animation: animateAcheivedText 0.3s linear 1.5s forwards;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.embla__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.embla__dot {
+  width: 10px;
+  height: 10px;
+  /* background: gray; */
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.embla__dot--active {
+  background: white;
+}
